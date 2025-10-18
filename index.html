@@ -4,19 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <div id="container">
-
-Pegar no bootstrap parte de row, para forma as linhas em columns para formar os esquadros
-            <div id="Tabuleiro">
-            </div>
-        </div>
-        <h2>tentativas</h2>
-    </title>
+    <title>Jogo da Memória</title>
+    <link rel="stylesheet" href="styless.css">
 </head>
 
-<body>
+<body class="bg-light text-center mt-4">
+    <div class="container">
+        <h2 class="mb-3">Jogo da Memória</h2>
+        <h4 class="mb-4 text-muted">
+            Esse jogo tem como capacidade auxiliar sua meória muscular! <br> Sendo intuitivo para crianças e adultos,
+            estimulando a aprendizagem de forma divertida
+        </h4>
 
+        <p class="fs-5 mb-4">Tentativas <span id="tentativas">0</span></p>
+
+        <div id="tabuleiro" class="row g-3 justify-content-center">
+            <!--As cartas serão inseridas aqui via javaScript-->
+        </div>
+
+        <button id="reiniciar" class="btn btn-primary mt-4">Reiniciar</button>
+    </div>
+
+    <script src="javaScript.js"></script>
 </body>
 
 </html>
