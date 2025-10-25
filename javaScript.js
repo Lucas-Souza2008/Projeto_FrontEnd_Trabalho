@@ -1,16 +1,16 @@
 const cartas = [
-  { nome: 'gato', img: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
-  { nome: 'gato', img: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
-  { nome: 'cachorro', img: 'https://cdn-icons-png.flaticon.com/512/616/6164081.png' },
-  { nome: 'cachorro', img: 'https://cdn-icons-png.flaticon.com/512/616/6164081.png' },
-  { nome: 'panda', img: 'https://cdn-icons-png.flaticon.com/512/616/616554.png' },
-  { nome: 'panda', img: 'https://cdn-icons-png.flaticon.com/512/616/616554.png' },
-  { nome: 'tigre', img: 'https://cdn-icons-png.flaticon.com/512/616/6164082.png' },
-  { nome: 'tigre', img: 'https://cdn-icons-png.flaticon.com/512/616/6164082.png' },
-  { nome: 'raposa', img: 'https://cdn-icons-png.flaticon.com/512/616/6164084.png' },
-  { nome: 'raposa', img: 'https://cdn-icons-png.flaticon.com/512/616/6164084.png' },
-  { nome: 'urso', img: 'https://cdn-icons-png.flaticon.com/512/616/6165544.png' },
-  { nome: 'urso', img: 'https://cdn-icons-png.flaticon.com/512/616/6165544.png' }
+  { nome: 'macaco', img: 'Imagens_Trabalho_JogoMemoria/3513751-ilustracao-desenho-desenho-arvore-macaco-bonito-pendurado-gratis-vetor.jpg' },
+  { nome: 'macaco', img: 'Imagens_Trabalho_JogoMemoria/3513751-ilustracao-desenho-desenho-arvore-macaco-bonito-pendurado-gratis-vetor.jpg' },
+  { nome: 'tigre', img: 'Imagens_Trabalho_JogoMemoria/5151726-desenho-tigre-isolado-em-fundo-branco-gratis-vetor.jpg' },
+  { nome: 'tigre', img: 'Imagens_Trabalho_JogoMemoria/5151726-desenho-tigre-isolado-em-fundo-branco-gratis-vetor.jpg' },
+  { nome: 'leao', img: 'Imagens_Trabalho_JogoMemoria/14762647-ilustracaoial-de-um-leao-em-um-estilo-bonito-de-desenho-animado-gratis-vetor.jpg' },
+  { nome: 'leao', img: 'Imagens_Trabalho_JogoMemoria/14762647-ilustracaoial-de-um-leao-em-um-estilo-bonito-de-desenho-animado-gratis-vetor.jpg' },
+  { nome: 'esquilo', img: 'Imagens_Trabalho_JogoMemoria/28312973-fofa-esquilo-desenho-animado-em-branco-fundo-gratis-vetor.jpg' },
+  { nome: 'esquilo', img: 'Imagens_Trabalho_JogoMemoria/28312973-fofa-esquilo-desenho-animado-em-branco-fundo-gratis-vetor.jpg' },
+  { nome: 'jacare', img: 'Imagens_Trabalho_JogoMemoria/48684852-desenho-animado-jacare-crocodilo-clipart-ilustracao-em-uma-branco-fundo-vetor.jpg' },
+  { nome: 'jacare', img: 'Imagens_Trabalho_JogoMemoria/48684852-desenho-animado-jacare-crocodilo-clipart-ilustracao-em-uma-branco-fundo-vetor.jpg' },
+  { nome: 'tartaruga', img: 'Imagens_Trabalho_JogoMemoria/49978943-uma-desenho-animado-tartaruga-com-grande-olhos-e-uma-grande-boca-gratis-vetor.jpg' },
+  { nome: 'tartaruga', img: 'Imagens_Trabalho_JogoMemoria/49978943-uma-desenho-animado-tartaruga-com-grande-olhos-e-uma-grande-boca-gratis-vetor.jpg' },
 ];
 
 let cartasViradas = [];
