@@ -75,6 +75,7 @@ function checarMatch() {
   if (nomesVirados[0] === nomesVirados[1]) {
     cartasViradas = [];
     nomesVirados = [];
+    verificaVitoria();
   } else {
     bloquearTabuleiro = true;
     setTimeout(() => {
@@ -87,6 +88,59 @@ function checarMatch() {
   }
 }
 
+function verificaVitoria() {
+  const todas = document.querySelectorAll(".carta");
+  const viradas = document.querySelectorAll(".carta.virada");
+
+  if (todas.length === viradas.length) {
+    setTimeout(() => {
+      const mensagem = document.getElementById("mensagemVitoria");
+      const tentativasFinal = document.getElementById("tentativasFinal");
+      const titulo = mensagem.querySelector("h2");
+
+      tentativasFinal.textContent = tentativas;
+
+      // Mensagem dinâmica
+      if (tentativas <= 10) {
+        titulo.textContent = "🔥 Incrível! Você dominou o jogo!";
+      } else if (tentativas <= 20) {
+        titulo.textContent = "🎯 Excelente! Grande desempenho!";
+      } else {
+        titulo.textContent = "🎉 Parabéns, vitória conquistada!";
+      }
+
+      mensagem.classList.remove("oculto");
+      confete();
+    }, 1000);
+  }
+}
+
+// Efeito de confete
+function confete() {
+  for (let i = 0; i < 100; i++) {
+    const conf = document.createElement('div');
+    conf.classList.add('confete');
+    conf.style.left = Math.random() * 100 + 'vw';
+    conf.style.animationDuration = 2 + Math.random() * 3 + 's';
+    conf.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+    document.body.appendChild(conf);
+    setTimeout(() => conf.remove(), 4000);
+  }
+}
+
+// Botão "Jogar novamente"
+document.getElementById('btnJogarNovamente').addEventListener('click', () => {
+  const mensagem = document.getElementById('mensagemVitoria');
+  mensagem.classList.add('oculto');
+  cartasViradas = [];
+  nomesVirados = [];
+  tentativas = 0;
+  tentativaEl.textContent = tentativas;
+  bloquearTabuleiro = false;
+  criarTabuleiro();
+});
+
+// Botão "Reiniciar"
 btnReiniciar.addEventListener('click', () => {
   cartasViradas = [];
   nomesVirados = [];

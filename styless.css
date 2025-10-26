@@ -13,12 +13,48 @@ body {
   text-align: center;
 }
 
+/* ===== TÍTULO ===== */
 h1 {
-  color: #00796b;
+  color: #007bff; /* Azul moderno e profissional */
   margin-bottom: 10px;
-  text-shadow: 1px 1px 2px #004d40;
+  text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  animation: fadeInDown 0.8s ease-in-out;
 }
 
+h1:hover {
+  color: #0056b3;
+  transform: scale(1.03);
+}
+
+/* ===== PAINEL DE TENTATIVAS ===== */
+p {
+  background: #ffffff;
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  font-weight: 600;
+  color: #333;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+}
+
+p:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.25);
+}
+
+p span {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+/* ===== TABULEIRO ===== */
 #tabuleiro {
   display: grid;
   grid-template-columns: repeat(4, 120px);
@@ -28,6 +64,7 @@ h1 {
   perspective: 1000px;
 }
 
+/* ===== CARTAS ===== */
 .carta {
   width: 120px;
   height: 120px;
@@ -41,48 +78,147 @@ h1 {
   transform: scale(1.05);
 }
 
+/* Rotaciona quando virada */
 .carta.virada {
   transform: rotateY(180deg);
 }
 
+/* FRENTE E VERSO DAS CARTAS */
 .carta .frente,
 .carta .verso {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  backface-visibility: hidden;
+  backface-visibility: hidden; /* Garante que a face oposta fique invisível */
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: box-shadow 0.3s, transform 0.6s;
 }
 
+/* Frente: aparece antes da carta virar */
 .carta .frente {
   background: #1e88e5;
+  z-index: 2;
 }
 
+/* Verso: imagem, só visível ao virar */
 .carta .verso {
   background: #fff;
   transform: rotateY(180deg);
+  z-index: 1;
 }
 
 .carta img {
   width: 80%;
   height: 80%;
+  pointer-events: none; /* impede clique direto na imagem */
 }
 
+/* ===== BRILHO AZUL SUAVE NAS CARTAS VIRADAS ===== */
+.carta.virada .verso {
+  animation: brilhoAzul 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes brilhoAzul {
+  from {
+    box-shadow: 0 0 15px 5px rgba(30, 136, 229, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px 10px rgba(30, 136, 229, 0.8);
+  }
+}
+
+/* ===== BOTÕES ===== */
 button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #00796b;
+  background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #004d40;
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* ===== MENSAGEM DE VITÓRIA ===== */
+#mensagemVitoria {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8em;
+  text-align: center;
+  z-index: 1000;
+  animation: aparecer 0.8s ease-out;
+}
+
+#mensagemVitoria.oculto {
+  display: none;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#mensagemVitoria button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  background: gold;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#mensagemVitoria button:hover {
+  background: orange;
+}
+
+/* ===== CONFETES ===== */
+.confete {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  opacity: 0.8;
+  animation: cair linear forwards;
+  border-radius: 50%;
+}
+
+@keyframes cair {
+  to {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ===== ANIMAÇÃO DO TÍTULO ===== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
